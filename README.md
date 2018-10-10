@@ -42,10 +42,10 @@ But you may change this to your liking. You can add the driver to your project a
 int main(){
     ...
     Keypad keypad;
-	keypad._write_row = _write_row;
-	keypad._read_col = _read_col;
-	keypad._get_ms_tick = _get_ms_tick;
-	keypad_init(&keypad, keymap);
+    keypad._write_row = _write_row;
+    keypad._read_col = _read_col;
+    keypad._get_ms_tick = _get_ms_tick;
+    keypad_init(&keypad, keymap);
 
     while(1){
         ...
