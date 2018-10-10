@@ -28,4 +28,31 @@ void _write_row(uint8_t idx, uint8_t pinstate);
  * */
 bool _read_col(uint8_t idx);
 ```
-An example STM32 CUBEMX project for an STM32F103C8 MCU is provided for you conveniance.
+
+Next, you must provide a desired keymap. The standard keymap for this keypad is provided in config.h as follows:
+```c
+static char keymap[4][4] = { { '1', '2', '3', 'A' }, { '4', '5', '6', 'B' }, { '7', '8',
+		'9', 'C' }, { '*', '0', '#', 'D' } };
+```
+But you may change this to your liking. You can add the driver to your project as follows:
+```c
+#include "keypad/Keypad.h"
+#include "keypad/config.h"
+
+int main(){
+    ...
+    Keypad keypad;
+	keypad._write_row = _write_row;
+	keypad._read_col = _read_col;
+	keypad._get_ms_tick = _get_ms_tick;
+	keypad_init(&keypad, keymap);
+
+    while(1){
+        ...
+        if(keypad_getchar(&keypad)){
+            printf(str_buf, "Key pressed: %c\r\n", keypad.keypress);
+        }
+    }
+}
+```
+An example STM32 CUBEMX project for an STM32F103C8 MCU is provided for your conveniance.
