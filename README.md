@@ -2,7 +2,7 @@
 A platform agnostic driver for 4X4 hex keypads, such as the one found here: https://www.ebay.com/itm/4x4-Matrix-Array-16-Key-Membrane-Switch-Keypad-Keyboard-Arduino-AVR-Raspberry-Pi/232362364509?hash=item3619e04e5d:g:HN4AAOSwFnFV~NSx:rk:2:pf:0
 
 # Usage
-The driver consists of 4 files; config.c/.h, and Keypad.c/h. In order to properly use the driver, 3 functions must be implemented. Said functions can be found in config.c. These are:
+The driver consists of 4 files; `config.c`, `config.h`, `Keypad.c`, and `Keypad.h`. In order to properly use the driver, 3 functions must be implemented. Said functions can be found in `config.c`. These are:
 ```c
 /*
  * These 3 "abstract" functions must be implemented for the platform you are targeting
@@ -29,7 +29,7 @@ void _write_row(uint8_t idx, uint8_t pinstate);
 bool _read_col(uint8_t idx);
 ```
 
-Next, you must provide a desired keymap. The standard keymap for this keypad is provided in config.h as follows:
+Next, you must provide a desired keymap. The standard keymap for this keypad is provided in `config.h` as follows:
 ```c
 static char keymap[4][4] = { { '1', '2', '3', 'A' }, { '4', '5', '6', 'B' }, { '7', '8',
 		'9', 'C' }, { '*', '0', '#', 'D' } };
