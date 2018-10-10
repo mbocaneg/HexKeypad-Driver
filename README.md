@@ -50,7 +50,8 @@ int main(){
     while(1){
         ...
         if(keypad_getchar(&keypad)){
-            printf(str_buf, "Key pressed: %c\r\n", keypad.keypress);
+            char c = keypad.keypress
+            printf(str_buf, "Key pressed: %c\r\n", c);
         }
     }
 }
