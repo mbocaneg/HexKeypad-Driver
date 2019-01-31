@@ -1,7 +1,7 @@
 #ifndef KEYPAD_CONFIG_H_
 #define KEYPAD_CONFIG_H_
-#include "stm32f1xx_hal.h"
 #include <stdbool.h>
+#include <stdint.h>
 
 #define HIGH 1
 #define LOW 0
